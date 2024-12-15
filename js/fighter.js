@@ -9,7 +9,7 @@ export class Fighter {
         this.stats = { initiative, attack, defense, energyReplenishmentRate };
         this.log = new Log();
 
-        this.log.addItem('Create fighter',
+        this.log.addItem(`${this.name} creation`,
             [
                 `Player ${this.name} created`,
                 this
@@ -20,14 +20,19 @@ export class Fighter {
         }
     }
 
+
     get initiative() {
         const initiative = Math.floor(Math.random() * (this.stats.initiative + 1));
+
+        this.log.addItem(`${this.name} initiative`, [
+             `Initiative for ${this.name}: ${initiative}`
+        ])
+
         if (this.displayLog) {
-            console.log(`Initiative for ${this.name}: ${initiative}`);
+            console.log(this.log.getLastItem());
         }
 
         return initiative;
-
     }
 
 
@@ -39,8 +44,13 @@ export class Fighter {
 
         const energyReplenished = Math.floor(Math.random() * this.stats.energyReplenishmentRate + 1);
         this.energy += energyReplenished;
+
+        this.log.addItem('Replenish energy', [
+            `${this.name} recovers ${energyReplenished} energy. Current energy level is: ${this.energy}`
+       ])
+
         if (this.displayLog) {
-            console.log(`${this.name} recovers ${energyReplenished} energy. Current energy level is: ${this.energy}`);
+            console.log(this.log.getLastItem());
         }
     }
 
@@ -59,18 +69,17 @@ export class Fighter {
             this.hp -= damage;
         }
 
+        this.log.addItem(`${this.name} defense`, [
+            `${this.name} (${initialHp} hp) receives an attack of ${attackValue} hitpoints`,
+            `${this.name}'s energy level is ${this.energy + randomDefense} and generates a defense of ${randomDefense}`,
+            `${this.name} consumes ${consumedEnergy} energy`,
+            `${this.name} defends ${defense}`,
+            `${this.name} receives ${damage} damage`,
+            `${this.name} new health: ${this.hp}. New energy: ${this.energy}`
+       ]);
+
         if (this.displayLog) {
-            console.log('------------------');
-            console.log('DEFENSE LOG: ');
-
-            console.log(`${this.name} (${initialHp} hp) receives an attack of ${attackValue} hitpoints`);
-            console.log(`${this.name}'s energy level is ${this.energy + randomDefense} and generates a defense of ${randomDefense}`);
-
-            console.log(`${this.name} consumes ${consumedEnergy} energy`);
-            console.log(`${this.name} defends ${defense}`);
-            console.log(`${this.name} receives ${damage} damage`);
-
-            console.log(`${this.name} new health: ${this.hp}. New energy: ${this.energy}`);
+            console.log(this.log.getLastItem());
         }
     }
 
@@ -82,15 +91,16 @@ export class Fighter {
 
         this.energy -= attack;
 
+        this.log.addItem(`${this.name} attack`, [
+            `${this.name}'s energy level is ${initialEnergy} and generates an attack of ${randomAttack}`,
+            `${this.name} attacks with ${attack} damage`,
+            `${this.name}'s new energy level: ${this.energy}`,
+       ]);
 
         if (this.displayLog) {
-            console.log('------------------');
-            console.log('ATTACK LOG: ');
-
-            console.log(`${this.name}'s energy level is ${initialEnergy} and generates an attack of ${randomAttack}`);
-            console.log(`${this.name} attacks with ${attack} damage`);
-            console.log(`${this.name}'s new energy level: ${this.energy}`);
+            console.log(this.log.getLastItem());
         }
+
         return attack;
     }
 

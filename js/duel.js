@@ -45,7 +45,6 @@ export class Duel {
         console.log('🥤 ROUND OVER - FIGHTERS ARE MEDITATING...');
         roundOrder.forEach(fighter => {
             fighter.replenishEnergy();
-            console.log(`${fighter.name}'s hp: ${fighter.hp}`);   
         })
         
         
