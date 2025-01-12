@@ -2,7 +2,7 @@ import Log from "./log.js";
 
 export class Fighter {
     constructor(name, hp, initiative, attack, defense, energy, energyReplenishmentRate) {
-        this.displayLog = true;
+        this.displayLog = false;
         this.name = name;
         this.hp = hp;
         this.energy = energy;

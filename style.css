@@ -1,0 +1,44 @@
+.player{
+  width: 40rem;
+}
+
+#player2{
+  flex-direction: row-reverse;
+}
+
+#player2 .energy-bar{
+
+}
+
+.avatar{
+  height: 5rem;
+  aspect-ratio: 1;
+  background-size: cover;
+  background-position: center;
+}
+
+#player1 .avatar{
+  background-image: url('https://api.dicebear.com/9.x/adventurer/svg?seed=Player1');
+}
+
+#player2 .avatar{
+  background-image: url('https://api.dicebear.com/9.x/adventurer/svg?seed=Player2');
+}
+
+
+.bars-container{
+  width: 100%;
+}
+
+.bar{
+  border: 1px solid indigo;
+}
+
+.energy-bar{
+  width: 75%;
+}
+
+.log{
+  height: 15rem;
+  overflow-y: scroll;
+}
