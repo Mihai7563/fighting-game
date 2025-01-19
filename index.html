@@ -16,36 +16,36 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
     <script type="module" src="js/main.js"></script>
 </head>
-<body>
+<body class="roboto">
     <div class="container">
         <h1 class="text-center mt-5 mb-3">Fight game</h1>
 
         <!-- PLAYERS CONTAINER -->
-        <section class="players-container d-flex">
+        <section class="players-container bebas-neue d-flex">
             <!-- PLAYER 1 -->
             <div id="player1" class="player d-flex">
                 <div class="avatar-container">
                     <div class="avatar me-1"></div>
-                    <div class="name">Player 1</div>
+                    <div class="name fs-5">Player 1</div>
                 </div>
                 <div class="bars-container">
-                    <div class="bar health-bar px-1 my-1">health</div>
-                    <div class="bar energy-bar px-1">energy</div>
+                    <div class="bar health-bar px-1 my-1"></div>
+                    <div class="bar energy-bar px-1"></div>
                 </div>
             </div>
             <!-- END: PLAYER 1 -->
 
-            <div class="round text-center mx-2">Round <span>33</span></div>
+            <div class="round roboto text-center mx-2">Round <span id="round-counter" class="bebas-neue fs-1">0</span></div>
 
             <!-- PLAYER 2 -->
             <div id="player2" class="player d-flex">
                 <div class="avatar-container">
                     <div class="avatar ms-1"></div>
-                    <div class="name text-end">Player 2</div>
+                    <div class="name fs-5 text-end">Player 2</div>
                 </div>
                 <div class="bars-container">
-                    <div class="bar health-bar text-end px-1 my-1">health</div>
-                    <div class="bar energy-bar float-end text-end px-1">energy</div>
+                    <div class="bar health-bar text-end px-1 my-1"></div>
+                    <div class="bar energy-bar float-end text-end px-1"></div>
                 </div>
             </div>
             <!-- END: PLAYER 2 -->

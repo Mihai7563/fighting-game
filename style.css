@@ -1,13 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+.bebas-neue {
+  font-family: "Bebas Neue", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.roboto{
+  font-family: "Roboto", serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
 .player{
   width: 40rem;
 }
 
 #player2{
   flex-direction: row-reverse;
-}
-
-#player2 .energy-bar{
-
 }
 
 .avatar{
@@ -31,11 +44,19 @@
 }
 
 .bar{
-  border: 1px solid indigo;
+  border: 1px solid;
 }
 
 .energy-bar{
   width: 75%;
+}
+
+.health-bar .bar-fill{
+  background-color: #66e755;
+}
+
+.energy-bar .bar-fill{
+  background-color: #1874ca;
 }
 
 .log{

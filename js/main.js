@@ -1,6 +1,7 @@
 import { Duel } from "./duel.js";
 import { Fighter } from "./fighter.js";
 import { LogView } from "./log-view.js";
+import { GameStateView } from "./game-state-view.js";
 
 const p1Properties = {
     name: 'George Calinescu',
@@ -33,3 +34,5 @@ document.querySelector('#new-round-btn').addEventListener('click', () => duel.ne
 
 
 const logView = new LogView(document.querySelector('#log-container'));
+
+const gameStateView = new GameStateView(document.querySelector('.players-container'), duel.fighters)

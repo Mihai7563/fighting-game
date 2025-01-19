@@ -17,7 +17,8 @@ export class Duel {
 
         this.roundCounter++;
         this.log.addItem('New Round', `Round ${this.roundCounter} starts!`);
-
+        
+        
         if(this.displayLog){
             console.log(this.log.getLastItem());
         }
@@ -31,6 +32,7 @@ export class Duel {
                 console.log(this.log.getLastItem());
             }
             
+            this.dispatchNewRoundEvent();
             return;   
         }
         
@@ -43,6 +45,7 @@ export class Duel {
         
         roundOrder[1].defend(roundOrder[0].attack);
         if(this.checkKO(roundOrder[1])){
+            this.dispatchNewRoundEvent();
             return;
         };
         
@@ -53,6 +56,7 @@ export class Duel {
         
         roundOrder[0].defend(roundOrder[1].attack);
         if(this.checkKO(roundOrder[0])){
+            this.dispatchNewRoundEvent();
             return;
         };        
         
@@ -64,23 +68,37 @@ export class Duel {
         roundOrder.forEach(fighter => {
             fighter.replenishEnergy();
         })
-
+        
         this.log.addItem('Round End', '⌛ ROUND OVER');
         if(this.displayLog){
             console.log(this.log.getLastItem());
         }
+        
+        this.dispatchNewRoundEvent();
     }
 
     checkKO(fighter){
         const isKO = !fighter.isAlive;
-
+        
         if(isKO){
             this.log.addItem('KO', `${fighter.name} is KO!!!☠️`);
             if(this.displayLog){
                 console.log(this.log.getLastItem());
             }
         }
-
+        
         return isKO;
+    }
+
+
+    dispatchNewRoundEvent(){
+        const event = new CustomEvent("roundChange", {
+            detail: {
+                round: this.roundCounter,
+                fighters: this.fighters 
+            }
+        });
+
+        window.dispatchEvent(event);
     }
 }
