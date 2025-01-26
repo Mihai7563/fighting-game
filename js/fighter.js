@@ -4,7 +4,9 @@ export class Fighter {
     constructor(name, hp, initiative, attack, defense, energy, energyReplenishmentRate) {
         this.displayLog = false;
         this.name = name;
+        this.maxHp = hp;
         this.hp = hp;
+        this.maxEnergy = energy;
         this.energy = energy;
         this.stats = { initiative, attack, defense, energyReplenishmentRate };
         this.log = new Log();
@@ -43,7 +45,7 @@ export class Fighter {
         }
 
         const energyReplenished = Math.floor(Math.random() * this.stats.energyReplenishmentRate + 1);
-        this.energy += energyReplenished;
+        this.energy += Math.min(energyReplenished, this.maxEnergy - this.energy);
 
         this.log.addItem('Replenish energy', [
             `${this.name} recovers ${energyReplenished} energy. Current energy level is: ${this.energy}`

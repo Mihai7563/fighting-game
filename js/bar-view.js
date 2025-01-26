@@ -15,14 +15,18 @@ export class BarView {
         this.barFill.classList.add('bar-fill');
         this.parentElem.append(this.barFill);
 
-        this.barCurrentValueSpan = document.createElement('span');
-        this.barFill.append(this.barCurrentValueSpan);
+        const barTextContainer = document.createElement('div');
+        barTextContainer.classList.add('bar-text-container', 'px-2');
+        this.barFill.append(barTextContainer);
 
-        this.barFill.append(document.createTextNode(' / '));
+        this.barCurrentValueSpan = document.createElement('span');
+        barTextContainer.append(this.barCurrentValueSpan);
+
+        barTextContainer.append(document.createTextNode(' / '));
 
         this.barMaxValueSpan = document.createElement('span');
         this.barMaxValueSpan.textContent = this.maxValue;
-        this.barFill.append(this.barMaxValueSpan);
+        barTextContainer.append(this.barMaxValueSpan);
 
         this.updateCurrentValue(this.currentValue);
     }

@@ -23,6 +23,7 @@
   flex-direction: row-reverse;
 }
 
+
 .avatar{
   height: 5rem;
   aspect-ratio: 1;
@@ -45,6 +46,28 @@
 
 .bar{
   border: 1px solid;
+}
+
+#player2 .bar{
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+
+.bar-fill{
+  height: 1.5rem;
+  position: relative;
+}
+
+.bar-text-container{
+  position: absolute;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+#player2 .bar-text-container{
+  right: 0;
 }
 
 .energy-bar{

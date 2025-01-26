@@ -9,7 +9,7 @@ const p1Properties = {
     initiative: 10,
     attack: 13,
     defense: 5,
-    energy: 10,
+    maxEnergy: 10,
     energyReplenishmentRate: 9
 }
 
@@ -19,7 +19,7 @@ const p2Properties = {
     initiative: 7,
     attack: 18,
     defense: 8,
-    energy: 15,
+    maxEnergy: 15,
     energyReplenishmentRate: 7
 }
 
